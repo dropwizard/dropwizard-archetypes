@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "config:base",
+    "helpers:pinGitHubActionDigests",
+    ":automergePatch",
+    ":automergePr",
+    ":automergeRequireAllStatusChecks",
+    ":prConcurrentLimitNone",
+    ":separatePatchReleases"
+  ],
+  "baseBranches": ["release/2.1.x", "release/3.0.x", "release/4.0.x"],
+  "dependencyDashboard": true,
+  "labels": ["dependencies"],
+  "platformAutomerge": true,
+  "reviewers": ["team:committers"],
+  "schedule": [
+    "before 2am"
+  ],
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "assignees": ["team:committers"]
+  }
+}
