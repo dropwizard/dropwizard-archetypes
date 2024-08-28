@@ -23,6 +23,12 @@
         A collection of Maven Archetypes for bootstrapping development of a new Dropwizard Service.
     </description>
 
+    <scm>
+        <connection>scm:git:https://github.com/dropwizard/dropwizard-archetypes</connection>
+        <developerConnection>scm:git:ssh://git@github.com/dropwizard/dropwizard-archetypes.git</developerConnection>
+        <url>https://github.com/dropwizard/dropwizard-archetypes</url>
+    </scm>
+
     <modules>
         <module>java-simple</module>
     </modules>
@@ -171,6 +177,22 @@
                 <archetype.test.skip>true</archetype.test.skip>
                 <invoker.skip>true</invoker.skip>
             </properties>
+        </profile>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-scm-plugin</artifactId>
+                        <version>2.1.0</version>
+                        <configuration>
+                            <connectionType>developerConnection</connectionType>
+                            <tag>v${project.version}</tag>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>
