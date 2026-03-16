@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.dropwizard.archetypes</groupId>
         <artifactId>dropwizard-archetypes</artifactId>
-        <version>4.0.16</version>
+        <version>4.0.17</version>
     </parent>
 
     <artifactId>java-simple</artifactId>
